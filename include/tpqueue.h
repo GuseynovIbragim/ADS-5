@@ -126,7 +126,7 @@ struct SYM {
   int  prior;
 };
 
-std::ostream & operator<<(std::ostream &os, const SYM &s) {
+ostream & operator<<(std::ostream &os, const SYM &s) {
 return os << '{' << s.ch << ", " << s.prior << '}';
 }
 
