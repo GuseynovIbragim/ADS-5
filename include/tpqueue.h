@@ -2,11 +2,12 @@
 #ifndef INCLUDE_TPQUEUE_H_
 #define INCLUDE_TPQUEUE_H_
 #include <cassert>
+#include <utility>
 
 template<typename T>
 class TPQueue {
   // Сюда помещается описание структуры "Очередь с приоритетами"
-public:
+ public:
 void push(const T &data) {
 LListQueue<T> new_queue;
 while (queue_.size() > 0 && queue_.get().prior >= data.prior) {
@@ -18,7 +19,7 @@ queue_ = std::move(new_queue);
 }
 T pop() { return queue_.pop(); }
 void print() { queue_.print(); }
-private:
+ private:
 LListQueue<T> queue_;
 };
 
@@ -32,7 +33,7 @@ ITEM *next;
 ~ITEM() { delete next; }
 };
 
-public:
+ public:
 LListQueue() : size_(0), head_(nullptr), tail_(nullptr) {}
 
 ~LListQueue() { delete head_; }
@@ -114,7 +115,7 @@ q.head_ = nullptr;
 q.tail_ = nullptr;
 }
 
-private:
+ private:
 size_t size_;
 ITEM *head_;
 ITEM *tail_;
@@ -127,6 +128,6 @@ struct SYM {
 
 std::ostream & operator<<(std::ostream &os, const SYM &s) {
 return os << '{' << s.ch << ", " << s.prior << '}';
-};
+}
 
 #endif // INCLUDE_TPQUEUE_H_
