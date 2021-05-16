@@ -85,7 +85,7 @@ std::cout << '\n';
 
 size_t size() const { return size_; }
 
-LListQueue & operator=(LListQueue &&q) {
+LListQueue & operator = (LListQueue &&q) {
 delete head_;
 
 size_ = q.size_;
@@ -126,7 +126,7 @@ struct SYM {
   int  prior;
 };
 
-ostream & operator<<(std::ostream &os, const SYM &s) {
+std::ostream & operator<<(std::ostream &os, const SYM &s) {
 return os << '{' << s.ch << ", " << s.prior << '}';
 }
 
